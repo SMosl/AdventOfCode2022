@@ -2,7 +2,7 @@ def main1():
 	with open("./input.txt", "r") as f:
 		final_sum = 0
 		while(len(line := f.readline()) != 0):
-			x = int(len(line.strip())/2)
+			x = int(len(line)/2)
 			rucksack = [line[:x], line[x:]]
 			common = ord(''.join(set(rucksack[0]).intersection(rucksack[1])))
 			if common < 91:
