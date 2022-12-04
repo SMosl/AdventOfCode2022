@@ -23,7 +23,7 @@ def main2():
 			section1 = {x for x in range(int(sections[0]),int(sections[1]) + 1)}
 			section2 = {x for x in range(int(sections[2]),int(sections[3]) + 1)}
 			#check if either intersection is non-empty
-			if section1.intersection(section2) or section1.intersection(section2):
+			if section1.intersection(section2):
 				count += 1
 	print(count)
 
