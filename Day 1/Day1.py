@@ -1,5 +1,8 @@
+import os
+
 def main1():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		content = f.read().split('\n\n')
 
 	cals = []
