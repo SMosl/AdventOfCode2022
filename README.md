@@ -7,4 +7,5 @@
 ## Solve
 
 `cd "Day X"`
+
 `python DayX.py`
