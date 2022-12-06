@@ -1,7 +1,9 @@
+import os
 import re
 
 def main1():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		# read the input and split into the two sections
 		[stacks_raw, instructions] = f.read().split('\n\n')
 		stacks_split = stacks_raw.splitlines()
@@ -28,7 +30,8 @@ def main1():
 		print(message)
 
 def main2():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		[stacks_raw, instructions] = f.read().split('\n\n')
 		stacks_split = stacks_raw.splitlines()
 		num_cols = int(stacks_split[-1].split()[-1])

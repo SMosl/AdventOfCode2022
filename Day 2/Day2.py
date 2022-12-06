@@ -1,3 +1,4 @@
+import os
 
 get_score1 = {
 	'A X' : 4,
@@ -25,14 +26,16 @@ get_score2 = {
 
 
 def main1():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		score = 0
 		while(len(line := f.readline()) != 0):
 			score += get_score1[line[:3]]
 	print(score)
 
 def main2():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		score = 0
 		while(len(line := f.readline()) != 0):
 			score += get_score2[line[:3]]

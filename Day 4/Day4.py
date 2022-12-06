@@ -1,8 +1,10 @@
+import os
 import re
 
 def main1():
 	count = 0
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		while(len(line := f.readline()) != 0):
 			#split each line into the 4 ID's, the filter removes the empty string
 			sections = list(filter(None, re.split(',|-|\n',line)))
@@ -16,7 +18,8 @@ def main1():
 
 def main2():
 	count = 0
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		while(len(line := f.readline()) != 0):
 
 			sections = list(filter(None, re.split(',|-|\n', line)))

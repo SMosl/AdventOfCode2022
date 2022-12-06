@@ -1,5 +1,8 @@
+import os
+
 def main1():
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		final_sum = 0
 		while(len(line := f.readline()) != 0):
 			x = int(len(line)/2)
@@ -13,7 +16,8 @@ def main1():
 
 def main2():
 	final_sum = 0
-	with open("./input.txt", "r") as f:
+	dir_path = os.path.dirname(os.path.realpath(__file__))
+	with open(f"{dir_path}/input.txt", "r") as f:
 		content = f.read().splitlines()
 	for i in range(int(len(content)/3)):
 		common = ord(''.join(set(content[3*i]).intersection(content[3*i+1]).intersection(content[3*i+2])))
