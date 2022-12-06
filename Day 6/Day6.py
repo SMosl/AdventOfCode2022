@@ -7,14 +7,11 @@ def main(part):
 		num_chars = (10 * (part - 1)) + 4
 		
 		line = f.readline()
-		position = num_chars
-		while(position < len(line)):
+		for position in range(num_chars, len(line)):
 			potential_marker = line[position - num_chars : position]
 			# Check if the characters in the current potential marker are unique to one another
 			if len(set(potential_marker)) == len(potential_marker):
 				return(position, potential_marker)
-			else:
-				position += 1
 
 if __name__ == "__main__":
 	part1 = main(1)
