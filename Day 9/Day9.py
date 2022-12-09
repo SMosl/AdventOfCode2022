@@ -16,9 +16,9 @@ def main(part):
 			'D' : [0,-1]
 		}
 		
-		while(len(line := f.readline().split()) != 0):
+		while (len(line := f.readline().split()) != 0):
 			(positions, visited) = next_instruction(positions, d[line[0]], int(line[1]), visited)
-		return(len(visited))
+		return (len(visited))
 
 def next_instruction(positions, direction, distance, visited):
 	for i in range(distance):
@@ -26,7 +26,7 @@ def next_instruction(positions, direction, distance, visited):
 		for knot in range(len(positions[1:])):
 			(positions, visited) = next_step(positions, visited, knot + 1)
 	
-	return((positions, visited))
+	return (positions, visited)
 
 def next_step(positions, visited, knot): 
 	# If knot ahead moves such that it is further than 1 space away from the current knot, the current knot moves 1 space towards it
