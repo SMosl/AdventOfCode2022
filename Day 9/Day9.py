@@ -31,7 +31,10 @@ def next_instruction(positions, direction, distance, visited):
 def next_step(positions, visited, knot): 
 	# If knot ahead moves such that it is further than 1 space away from the current knot, the current knot moves 1 space towards it
 	if (abs(positions[knot - 1][0] - positions[knot][0]) > 1) or (abs(positions[knot - 1][1] - positions[knot][1]) > 1):
-		positions[knot] = [positions[knot][0] + np.sign(positions[knot - 1][0] - positions[knot][0]), positions[knot][1] + np.sign(positions[knot - 1][1] - positions[knot][1])]
+		positions[knot] = [
+			positions[knot][0] + np.sign(positions[knot - 1][0] - positions[knot][0]), 
+			positions[knot][1] + np.sign(positions[knot - 1][1] - positions[knot][1])
+			]
 	
 	# Record the position of the final knot if it is a new position
 	if (positions[-1][0], positions[-1][1]) not in visited:
