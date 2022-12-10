@@ -36,18 +36,18 @@ def main2():
 				if ((cycle - 1) % 40) in X:
 					display += '#'
 				else:
-					display += '.'
+					display += ' '
 			else:
 				cycle = (cycle + 1) % 40
 				if ((cycle - 1) % 40) in X:
 					display += '#'
 				else:
-					display += '.'
+					display += ' '
 				cycle = (cycle + 1) % 40
 				if ((cycle - 1) % 40) in X:
 					display += '#'
 				else:
-					display += '.'
+					display += ' '
 				X = {(x + int(line[1])) % 40 for x in X}
 		
 		print_display(display, dir_path)
