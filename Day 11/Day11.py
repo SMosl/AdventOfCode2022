@@ -18,7 +18,7 @@ def main(part):
 		# Find the worry levels of the items that each monkey initially holds
 		for i, monkey in enumerate(sections):
 			vals = monkey[1].split()[2:]
-			monkeys[i] = [np.int64(y[0]) for y in [re.findall(r'\d+', x) for x in vals]]	# Using int64 because part 2 works with larger ints, there's probably a better workaround
+			monkeys[i] = [np.int64(y[0]) for y in [re.findall(r'\d+', x) for x in vals]]	# int64 as part 2 works with big nums, there's surely a better workaround
 
 		for v in range(num_rounds):
 			# Each round, iterate through each monkey in order
