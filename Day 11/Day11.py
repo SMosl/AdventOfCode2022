@@ -39,8 +39,8 @@ def main2():
 		sections = [x.splitlines() for x in f.read().split('\n\n')]
 		monkeys = {}
 		inspections = [0 for _ in range(len(sections))]
-		# To prevent numbers getting too large, we will work with worry levels modulo the gcd of each monkey's test value
-		gcd = np.prod([int(x[3].split('by ')[1]) for x in sections])
+		# To prevent numbers getting too large, we will work with worry levels modulo the lcm of each monkey's test value
+		lcm = np.lcm.reduce([int(x[3].split('by ')[1]) for x in sections])
 
 		for i, monkey in enumerate(sections):
 			vals = monkey[1].split()[2:]
@@ -50,7 +50,7 @@ def main2():
 			for u, turn in enumerate(sections):
 				for old in monkeys[u]:
 					inspections[u] += 1
-					new = eval(turn[2].split('= ')[1]) % gcd
+					new = eval(turn[2].split('= ')[1]) % lcm
 					test = int(turn[3].split('by ')[-1])
 					if new % test == 0:
 						recipient = int(turn[4].split('monkey ')[1])
