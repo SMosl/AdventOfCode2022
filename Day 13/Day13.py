@@ -4,32 +4,36 @@ import ast
 def main1():
 	dir_path = os.path.dirname(os.path.realpath(__file__))
 	with open(f"{dir_path}/input.txt", "r") as f:
+		# Separate the input into a list of pairs of lists
 		pairs = [(ast.literal_eval(x.split('\n')[0]), ast.literal_eval(x.split('\n')[1])) for x in f.read().split('\n\n')]
+		
+		# indices will list whether a pair is in the correct order, 'True', or not, 'False' 
 		indices = []
 		for i in range(len(pairs)):
 			indices.append(compare(pairs[i][0], pairs[i][1]))
+		
+		# Part 1 asks for the sum of the indices of the matching pairs
 		return(sum([i + 1 for  i, x in enumerate(indices) if (x == True)]))
 
 def main2():
 	dir_path = os.path.dirname(os.path.realpath(__file__))
 	with open(f"{dir_path}/input.txt", "r") as f:
-		input = f.read().split('\n\n')
-		pairs = []
-		for pair in input:
-			lines = pair.split('\n')
-			pairs = pairs + [ast.literal_eval(lines[0]), ast.literal_eval(lines[1])]
-		pairs = pairs + [[[2]], [[6]]]
-
+		packets = [ast.literal_eval(x) for x in f.read().splitlines() if (x != '')]
+		packets = packets + [[[2]], [[6]]]
+		
+		# Repeat the following until every pairwise comparison returns True
 		num_true = 0
-		while num_true < len(pairs) - 1:
+		while num_true < len(packets) - 1:
 			num_true = 0
-			for i in range(len(pairs) - 1):
-				if compare(pairs[i], pairs[i + 1]) == False:
-					pairs[i], pairs[i + 1] = pairs[i + 1], pairs[i]
+			# Compare each element in the list of packets with the next, swapping their positions if left > right
+			for i in range(len(packets) - 1):
+				if compare(packets[i], packets[i + 1]) == False:
+					packets[i], packets[i + 1] = packets[i + 1], packets[i]
 				else:
 					num_true += 1
 
-		return((pairs.index([[2]]) + 1) * (pairs.index([[6]]) + 1))
+		# Part 2 asks for the product of the indices of the two divider packets, [[2]] and [[6]]
+		return((packets.index([[2]]) + 1) * (packets.index([[6]]) + 1))
 
 def compare(left, right):
 	index = 0
@@ -61,8 +65,10 @@ def compare(left, right):
 				else:
 					index += 1
 		except IndexError:
+			# In the case that right runs out of items before left
 			return(False)
 
+	# In the case that left runs out of items before right
 	if len(left) < len(right):
 		return(True)
 
