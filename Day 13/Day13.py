@@ -18,8 +18,7 @@ def main1():
 def main2():
 	dir_path = os.path.dirname(os.path.realpath(__file__))
 	with open(f"{dir_path}/input.txt", "r") as f:
-		packets = [ast.literal_eval(x) for x in f.read().splitlines() if (x != '')]
-		packets = packets + [[[2]], [[6]]]
+		packets = [ast.literal_eval(x) for x in f.read().splitlines() if (x != '')] + [[[2]], [[6]]]
 		
 		# Repeat the following until every pairwise comparison returns True
 		num_true = 0
