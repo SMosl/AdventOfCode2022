@@ -60,7 +60,6 @@ def release_sand(current_state, part):
 		if new_pos[1] == True:
 			# For part 1, if the sand is above the abyss, return the state
 			if part == 1 and is_doomed(current_state, new_pos[0]):
-				#if is_doomed(current_state, new_pos[0]):
 				return(current_state, True)
 			# Otherwise iterate with the sand at the new position
 			else:
