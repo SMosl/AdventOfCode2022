@@ -86,6 +86,9 @@ if __name__ == "__main__":
 	start_time = time.time()
 	part1 = main1()
 	print(f" Part 1 solution: {part1}")
+	mid_time = time.time()
+	print("Part 1 finished --- %s seconds ---" % (time.time() - start_time))
+	
 	part2 = main2()
 	print(f" Part 2 solution: {part2}")
-	print("Process finished --- %s seconds ---" % (time.time() - start_time))
+	print("Process finished --- %s seconds ---" % (time.time() - mid_time))
