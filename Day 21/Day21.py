@@ -82,9 +82,8 @@ def main2():
 	# Convert LHS from list form to string, eg from [4, '-', '(', 'ljgn', '*', 'ptdq', ')'] to '4-(ljgn*ptdq)'
 	LHS = ''.join([str(s) for s in LHS])
 	RHS = vals[RHS[0]]
-	# Define 'humn' as a symbol and pass the expression into sympy
+	# Pass the expression into sympy
 	expression = sympy.parse_expr(LHS)
-	humn = sympy.Symbol('humn')
 	eqa = sympy.Eq(expression, RHS)
 	solution = sympy.solve(eqa)
 
