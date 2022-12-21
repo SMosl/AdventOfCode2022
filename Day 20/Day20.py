@@ -13,7 +13,7 @@ def main(part):
 	indices = [x for x in range(len(sequence))]
 
 	# Part 2 repeats the mixing 10 times, Part 1 does it once
-	for j in range(((part - 1) * 9) + 1):
+	for j in range((part * 9) - 8):
 		for i in range(len(sequence)):
 			# Find where i is in indices, this is the current index of the current value in the sequence
 			cur_index = indices.index(i)
