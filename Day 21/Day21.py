@@ -53,7 +53,7 @@ def main2():
 	del operations['root']
 	solution = False
 
-	# Reduce the set of operations to only be those that depend on the value of humn
+	# Reduce the set of operations to only include those that depend on the value of humn
 	while solution == False:
 		num_unsolved = len(operations)
 		for unsolved in operations:
@@ -63,8 +63,8 @@ def main2():
 		vals, operations = evaluate(vals, operations, ops)
 		if len(operations) == num_unsolved:
 			solution = True
-	# Repeatedly replace any instances of an operation with its expanded version (eg 'sllz + lgvd' becomes '(4 - (ljgn * ptdq))' in the example)
-	# It happens that RHS is an integer and does not depend on the value of humn
+	# Repeatedly replace any instances of an operation with their expanded versions (eg 'sllz + lgvd' becomes '(4 - (ljgn * ptdq))' in the example)
+	# It happens that RHS is an integer and does not depend on the value of humn, so only LHS needs to be simplified
 	continuing = True
 	while continuing:
 		matches = 0
