@@ -63,7 +63,7 @@ def main2():
 		vals, operations = evaluate(vals, operations, ops)
 		if len(operations) == num_unsolved:
 			solution = True
-	# Repeatedly replace any instances of an operation with their expanded versions (eg 'sllz + lgvd' becomes '(4 - (ljgn * ptdq))' in the example)
+	# Repeatedly replace any instances of an operation with their expanded versions (eg ['sllz', '+', 'lgvd'] becomes [4, '-', '(', 'ljgn', '*', 'ptdq', ')'] in the example)
 	# It happens that RHS is an integer and does not depend on the value of humn, so only LHS needs to be simplified
 	continuing = True
 	while continuing:
